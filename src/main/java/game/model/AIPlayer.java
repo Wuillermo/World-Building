@@ -1,2 +1,6 @@
-package game.model;public class AIPlayer {
+package game.model;
+
+// Represents AI logic for factions
+public class AIPlayer {
+
 }

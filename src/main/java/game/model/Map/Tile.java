@@ -1,7 +1,9 @@
-package game.model;
+package game.model.Map;
+
+import java.io.Serializable;
 
 // Represents a single tile on the game map
-public class Tile {
+public class Tile implements Serializable {
 
     // ATTRIBUTES
     private final int x, y;
@@ -12,5 +14,9 @@ public class Tile {
         this.x = x;
         this.y = y;
         this.terrain = terrain;
+    }
+
+    public TerrainType getTerrain() {
+        return terrain;
     }
 }

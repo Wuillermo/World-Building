@@ -1,4 +1,6 @@
-package game.model;
+package game.model.Map;
+
+import game.model.Factions.Faction;
 
 import java.util.List;
 

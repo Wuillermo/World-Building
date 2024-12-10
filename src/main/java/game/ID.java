@@ -1,2 +1,6 @@
-package game;public enum ID {
+package game;
+
+public enum ID {
+    Player(),
+    Map()
 }

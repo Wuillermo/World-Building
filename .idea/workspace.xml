@@ -4,11 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e14d79d1-6628-4b59-a2bf-293a9455f7dd" name="Changes" comment="" />
+    <list default="true" id="e14d79d1-6628-4b59-a2bf-293a9455f7dd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Handler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/ID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/ID.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/MouseInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/MouseInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/AIPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Effect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/Effect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Factions/Faction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/Factions/Faction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Factions/Relationship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/Factions/Relationship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Map/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/Map/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Map/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/Map/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Map/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/Map/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Map/MapIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/Map/MapIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Map/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/Map/Resource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Map/TerrainType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/Map/TerrainType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Map/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/Map/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/Unit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/Menu.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -22,7 +65,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

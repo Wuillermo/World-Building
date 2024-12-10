@@ -1,4 +1,6 @@
-package game.model;
+package game.model.Factions;
+
+import game.model.Factions.Faction;
 
 // Manages the relationship between two factions
 public class Relationship {

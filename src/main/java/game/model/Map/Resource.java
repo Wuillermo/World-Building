@@ -1,4 +1,4 @@
-package game.model;
+package game.model.Map;
 
 // Represents resources like iron, gold, or wheat
 public class Resource {
