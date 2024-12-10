@@ -1,7 +1,7 @@
-package game.model;
+package game.model.factions;
 
-import game.GameObject;
-import game.ID;
+import game.model.core.GameObject;
+import game.model.core.ID;
 
 import java.awt.*;
 

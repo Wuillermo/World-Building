@@ -1,9 +1,9 @@
 package game.view;
 
-import game.GameManager;
-import game.Handler;
-import game.controller.KeyHandler;
-import game.controller.MouseInput;
+import game.model.core.GameManager;
+import game.model.core.Handler;
+import game.controller.KeyController;
+import game.controller.MouseController;
 
 import java.awt.*;
 import javax.swing.JPanel;
@@ -24,8 +24,8 @@ public class GamePanel extends JPanel {
     private GameManager gameManager;
     private Handler handler;
     private final Menu menu;
-    private final KeyHandler keyHandler;
-    private final MouseInput mouseInput;
+    private final KeyController keyController;
+    private final MouseController mouseController;
 
     public enum STATE {
         MENU,
@@ -36,15 +36,15 @@ public class GamePanel extends JPanel {
     // CONSTRUCTOR
     public GamePanel(GameManager gameManager) {
         this.gameManager = gameManager;
-        keyHandler = new KeyHandler(this, gameManager);
-        mouseInput = new MouseInput(this);
+        keyController = new KeyController(this, gameManager);
+        mouseController = new MouseController(this);
 
         // Make the window
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true); // If set to true, all drawing from this component will be done in an offscreen painting buffer
-        this.addKeyListener(keyHandler);
-        this.addMouseListener(mouseInput);
+        this.addKeyListener(keyController);
+        this.addMouseListener(mouseController);
         this.setFocusable(true);
 
         menu = new Menu(this);

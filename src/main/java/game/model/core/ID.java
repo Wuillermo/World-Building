@@ -1,4 +1,4 @@
-package game;
+package game.model.core;
 
 public enum ID {
     Player(),

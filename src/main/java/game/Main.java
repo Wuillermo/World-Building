@@ -1,5 +1,6 @@
 package game;
 
+import game.model.core.GameManager;
 import game.view.GamePanel;
 
 import javax.swing.JFrame;

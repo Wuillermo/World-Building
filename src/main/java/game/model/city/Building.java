@@ -1,4 +1,4 @@
-package game.model.Map;
+package game.model.city;
 
 // Represents a structure within a city
 public class Building {

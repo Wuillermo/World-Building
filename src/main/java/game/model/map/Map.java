@@ -1,7 +1,7 @@
-package game.model.Map;
+package game.model.map;
 
-import game.GameObject;
-import game.ID;
+import game.model.core.GameObject;
+import game.model.core.ID;
 import game.view.GamePanel;
 
 import java.awt.*;

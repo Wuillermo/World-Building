@@ -1,4 +1,6 @@
-package game;
+package game.model.core;
+
+import game.model.core.GameObject;
 
 import java.awt.*;
 import java.util.LinkedList;

@@ -1,0 +1,73 @@
+WorldBuilding/
+├── src/
+│   ├── main/
+│   │   └── java/game/
+│   │       ├── model/              # Game data and logic
+│   │       │   ├── core/
+│   │       │   │   ├── Game.java
+│   │       │   │   ├── TurnManager.java
+│   │       │   ├── world/          # World map and geography
+│   │       │   │   ├── World.java
+│   │       │   │   ├── Tile.java
+│   │       │   │   ├── TerrainType.java
+│   │       │   │   ├── Resource.java
+│   │       │   │   ├── ResourceType.java
+│   │       │   ├── factions/       # Factions, players, and diplomacy
+│   │       │   │   ├── Player.java
+│   │       │   │   ├── Faction.java
+│   │       │   │   ├── Leader.java
+│   │       │   │   ├── UniqueAbility.java
+│   │       │   ├── city/           # Cities and economy
+│   │       │   │   ├── City.java
+│   │       │   │   ├── Building.java
+│   │       │   │   ├── BuildingType.java
+│   │       │   ├── units/          # Units and combat
+│   │       │   │   ├── Unit.java
+│   │       │   │   ├── UnitType.java
+│   │       │   │   ├── CombatManager.java
+│   │       │   ├── ai/             # AI and decision-making
+│   │       │   │   ├── AIPlayer.java
+│   │       │   │   ├── AIManager.java
+│   │       │   ├── util/           # Utilities and support functions
+│   │       │       ├── Pathfinding.java
+│   │       │       ├── RandomEventGenerator.java
+│   │       │       ├── Event.java
+│   │       │       ├── GameLogger.java
+│   │       ├── view/              # Game presentation (UI, rendering)
+│   │       │   ├── GameView.java
+│   │       │   ├── MapRenderer.java
+│   │       │   ├── HUDRenderer.java
+│   │       │   ├── Sprite.java
+│   │       │   ├── TextureManager.java
+│   │       │   └── AnimationManager.java
+│   │       ├── controller/        # User input, camera, and game control
+│   │       │   ├── InputManager.java
+│   │       │   ├── MouseController.java
+│   │       │   ├── KeyboardController.java
+│   │       │   ├── CameraController.java
+│   │       │   └── GameController.java
+│   │       ├── Main.java          # Entry point for the game
+├── assets/
+│   ├── images/                     # Game images and textures
+│   ├── sounds/                     # Sound effects and music
+│   ├── maps/                       # Predefined maps or scenarios
+│   ├── fonts/
+├── config/
+│   ├── game_settings.json          # Game configuration settings
+│   ├── factions.json               # Faction and leader data
+├── docs/                           # Documentation
+│   ├── design/
+│   ├── user_manual.md
+│   └── developer_guide.md
+├── lib/                            # External libraries and dependencies
+├── logs/                           # Game logs and debug information
+├── resources/                      # Non-image resources (e.g., text, config files)
+├── test/                           # Testing
+│   ├── unit_tests/                 # Unit tests for individual classes
+│   ├── integration_tests/          # Integration tests for combined components
+│   ├── resources/                  # Test resources like mock data
+├── build/                          # Build artifacts (e.g., compiled .class files)
+├── dist/                           # Distribution files (e.g., .jar)
+├── README.md
+├── LICENSE
+├── .gitignore

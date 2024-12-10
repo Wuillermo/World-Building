@@ -1,4 +1,4 @@
-package game.model.Map;
+package game.model.map;
 
 import java.io.*;
 import java.net.URL;

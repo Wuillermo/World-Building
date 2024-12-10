@@ -1,17 +1,17 @@
 package game.controller;
 
-import game.GameManager;
+import game.model.core.GameManager;
 import game.view.GamePanel;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class KeyHandler implements KeyListener {
+public class KeyController implements KeyListener {
 
     private final GamePanel gamePanel;
     private final GameManager gameManager;
 
-    public KeyHandler(GamePanel gamePanel, GameManager gameManager) {
+    public KeyController(GamePanel gamePanel, GameManager gameManager) {
         this.gamePanel = gamePanel;
         this.gameManager = gameManager;
     }

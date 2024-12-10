@@ -1,6 +1,7 @@
-package game.model.Map;
+package game.model.city;
 
-import game.model.Factions.Faction;
+import game.model.factions.Faction;
+import game.model.map.Tile;
 
 import java.util.List;
 

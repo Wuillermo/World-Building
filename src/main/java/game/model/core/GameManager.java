@@ -1,8 +1,8 @@
-package game;
+package game.model.core;
 
-import game.model.Map.Map;
-import game.model.Map.MapIO;
-import game.model.Map.TerrainType;
+import game.model.map.Map;
+import game.model.map.MapIO;
+import game.model.map.TerrainType;
 import game.view.GamePanel;
 
 public class GameManager extends Game implements Runnable {

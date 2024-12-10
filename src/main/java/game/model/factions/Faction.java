@@ -1,9 +1,9 @@
-package game.model.Factions;
+package game.model.factions;
 
-import game.GameObject;
-import game.ID;
-import game.model.Map.City;
-import game.model.Unit;
+import game.model.core.GameObject;
+import game.model.core.ID;
+import game.model.city.City;
+import game.model.unit.Unit;
 
 import java.awt.*;
 import java.util.List;

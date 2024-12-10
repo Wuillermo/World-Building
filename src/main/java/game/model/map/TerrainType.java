@@ -1,4 +1,4 @@
-package game.model.Map;
+package game.model.map;
 
 import java.awt.*;
 import java.io.Serializable;

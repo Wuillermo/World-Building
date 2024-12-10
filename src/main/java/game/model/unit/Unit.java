@@ -1,7 +1,7 @@
-package game.model;
+package game.model.unit;
 
-import game.model.Factions.Faction;
-import game.model.Map.Tile;
+import game.model.factions.Faction;
+import game.model.map.Tile;
 
 // Represents a military or civilian unit
 public class Unit {

@@ -5,10 +5,10 @@ import game.view.GamePanel;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class MouseInput implements MouseListener {
+public class MouseController implements MouseListener {
 
     private final GamePanel gamePanel;
-    public MouseInput(GamePanel gamePanel){
+    public MouseController(GamePanel gamePanel){
         this.gamePanel = gamePanel;
     }
 

@@ -1,8 +1,8 @@
-package game;
+package game.model.core;
 
-import game.model.AIPlayer;
-import game.model.Map.Map;
-import game.model.Player;
+import game.model.factions.AIPlayer;
+import game.model.map.Map;
+import game.model.factions.Player;
 
 public abstract class Game {
     protected Player player;
