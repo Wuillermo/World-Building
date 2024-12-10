@@ -15,7 +15,7 @@ public class GameManager extends Game implements Runnable {
 
     private GamePanel gamePanel;
     private Thread gameThread;
-    private boolean isRunning;
+    /*private boolean isRunning;*/
     private Handler handler;
     private boolean inGame;
     private TerrainType defaultTerrain;
@@ -31,12 +31,13 @@ public class GameManager extends Game implements Runnable {
 
     // METHODS
     // Initialize the game
-    private void init() {
+    protected void init() {
         handler = new Handler();
         gamePanel.setHandler(handler);
     }
 
-    private synchronized void startGameThread() {
+    // Start the game loop
+    protected synchronized void startGameThread() {
         if(isRunning) return;
 
         gameThread = new Thread(this);
@@ -44,7 +45,8 @@ public class GameManager extends Game implements Runnable {
         isRunning = true;
     }
 
-    private synchronized void stop() {
+    // Stop the game loop
+    protected synchronized void stop() {
         if(!isRunning) return;
 
         try {

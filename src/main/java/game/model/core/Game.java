@@ -5,10 +5,12 @@ import game.model.map.Map;
 import game.model.factions.Player;
 
 public abstract class Game {
+    protected boolean isRunning;
     protected Player player;
     protected AIPlayer[] aiPlayers;
     protected Map map;
 
+    // Probably not needed
     protected enum GameSteps {
         NOTSTARTED, LOADMAP, INITIALIZEAI, ADDPLAYER, INGAME, QUITGAME;
 
@@ -33,4 +35,8 @@ public abstract class Game {
 
     }
     protected GameSteps gameStep = GameSteps.NOTSTARTED;
+
+    protected abstract void init();
+    protected abstract void startGameThread();
+    protected abstract void stop();
 }

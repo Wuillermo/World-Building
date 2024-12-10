@@ -4,35 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e14d79d1-6628-4b59-a2bf-293a9455f7dd" name="Changes" comment="Added default/random map creation. Added TODO on GameManager.">
-      <change afterPath="$PROJECT_DIR$/config/factions.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/game-settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/ExampleStructure.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/controller/CameraController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/controller/InputManager.java" afterDir="false" />
+    <list default="true" id="e14d79d1-6628-4b59-a2bf-293a9455f7dd" name="Changes" comment="Reorganized project and added a bit of explanation to everything">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/GameManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/Handler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/ID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/ID.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/KeyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/MouseInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/MouseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/factions/AIPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Effect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Factions/Faction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/factions/Faction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Factions/Relationship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/factions/Relationship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Map/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/city/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Map/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/city/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Map/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/map/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Map/MapIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/map/MapIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Map/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/map/Resource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Map/TerrainType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/map/TerrainType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Map/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/map/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/factions/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/unit/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/core/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/core/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/GameManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +67,14 @@
       <option name="project" value="LOCAL" />
       <updated>1733846284231</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Reorganized project and added a bit of explanation to everything">
+      <created>1733852856605</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733852856605</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,6 +90,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added default/random map creation. Added TODO on GameManager." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added default/random map creation. Added TODO on GameManager." />
+    <MESSAGE value="Reorganized project and added a bit of explanation to everything" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reorganized project and added a bit of explanation to everything" />
   </component>
 </project>
