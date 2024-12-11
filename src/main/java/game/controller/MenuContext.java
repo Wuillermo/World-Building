@@ -30,6 +30,10 @@ public class MenuContext implements InputContextInterface {
     }
 
     @Override
+    public void handleKeyReleased(KeyEvent e) {
+    }
+
+    @Override
     public void handleMouseClick(MouseEvent e) {
         int mx = e.getX();
         int my = e.getY();
@@ -46,14 +50,13 @@ public class MenuContext implements InputContextInterface {
         // DEFAULT button
         else if((mx >= initialMapButton.x) && (mx <= (initialMapButton.x + initialMapButton.width))
                 &&(my >= initialMapButton.y) && (my <= (initialMapButton.y + initialMapButton.height))) {
-            System.out.println("Default button pressed");
+            eventQueue.addEvent(new Event(Event.EventType.DEFAULT_INIT));
         }
         // QUIT button
         else if((mx >= quitButton.x) && (mx <= (quitButton.x + quitButton.width))
                 &&(my >= quitButton.y) && (my <= (quitButton.y + quitButton.height))){
             eventQueue.addEvent(new Event(Event.EventType.QUIT_GAME));
         }
-        System.out.println("Handle menu button click at: " + mx + ", " + my);
     }
 
     @Override

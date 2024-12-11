@@ -1,6 +1,7 @@
 package game.model.core;
 
 public enum ID {
-    Player(),
-    Map()
+    Player,
+    Map,
+    Camera
 }

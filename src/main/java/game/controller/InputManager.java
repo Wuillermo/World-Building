@@ -16,6 +16,12 @@ public class InputManager {
         }
     }
 
+    public void handleKeyReleased(KeyEvent e) {
+        if (currentContext != null) {
+            currentContext.handleKeyReleased(e);
+        }
+    }
+
     public void handleMouseClick(MouseEvent e) {
         if (currentContext != null) {
             currentContext.handleMouseClick(e);

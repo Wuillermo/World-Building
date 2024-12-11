@@ -8,26 +8,32 @@ import game.controller.MenuContext;
 import game.model.map.Map;
 import game.model.map.MapIO;
 import game.model.map.TerrainType;
+import game.view.Camera;
 import game.view.GamePanel;
 import game.view.GameWindow;
 
 public class GameManager extends Game implements Runnable {
 
-    // ATTRIBUTES
-    private final int FPS = 60;
-
-    // General game variables
-
+    // GAME VARIABLES
+    // Window
     private final GameWindow window;
     private final GamePanel gamePanel;
-    private Thread gameThread;
+
+    // Handler
     private Handler handler;
+
+    // Input
     private final InputManager inputManager;
     private final GameplayContext gameplayContext;
     private final MenuContext menuContext;
     private final EventProcessor eventProcessor;
     private Thread eventThread;
 
+    // In-game
+    private final Camera camera;
+    private Map map;
+
+    // Control
     private boolean inGame;
     private final TerrainType defaultTerrain;
 
@@ -38,9 +44,10 @@ public class GameManager extends Game implements Runnable {
         EventQueue eventQueue = new EventQueue();
         this.inputManager = new InputManager();
         this.gamePanel = new GamePanel(inputManager);
-        this.eventProcessor = new EventProcessor(this, eventQueue, gamePanel);
         this.gameplayContext = new GameplayContext(eventQueue);
         this.menuContext = new MenuContext(eventQueue, gamePanel);
+        this.camera = new Camera(gamePanel.getScreenWidth(), gamePanel.getScreenHeight());
+        this.eventProcessor = new EventProcessor(this, eventQueue, gamePanel, camera);
         this.isRunning = false;
         this.threadsRunning = false;
         this.inGame = false;
@@ -49,7 +56,7 @@ public class GameManager extends Game implements Runnable {
         this.window.add(gamePanel);
         this.window.showOnScreen();
 
-        this.inputManager.setContext(new MenuContext(eventQueue, gamePanel));
+        this.inputManager.setContext(menuContext);
     }
 
     // METHODS
@@ -63,6 +70,7 @@ public class GameManager extends Game implements Runnable {
         this.gameFactions = 1;
         this.turn = 0;
         handler = new Handler();
+        handler.addObject(camera);
         gamePanel.setHandler(handler);
     }
 
@@ -70,7 +78,7 @@ public class GameManager extends Game implements Runnable {
     protected synchronized void startGameThreads() {
         if(isRunning) return;
 
-        gameThread = new Thread(this);
+        Thread gameThread = new Thread(this);
         gameThread.start();
         eventThread = new Thread(eventProcessor);
         eventThread.start();
@@ -98,7 +106,12 @@ public class GameManager extends Game implements Runnable {
 
     @Override
     public void run() {
-        double drawInterval = 1_000_000_000f/FPS;
+        // ATTRIBUTES
+        int FPS = 60;
+        int fps = 0;
+        int frames = 0;
+        double second = 0;
+        double drawInterval = 1_000_000_000f/ FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
@@ -106,14 +119,23 @@ public class GameManager extends Game implements Runnable {
         while(isRunning) {
             currentTime = System.nanoTime();
             delta += (currentTime - lastTime) / drawInterval;
+            second += (currentTime - lastTime);
             lastTime = currentTime;
 
             if(delta >= 1){
                 // Update: Update information
-                gamePanel.update();
+                if(gamePanel.getSCREENState() == GamePanel.SCREEN_STATE.GAME) handler.update();
+                /*gamePanel.update();*/
                 // Draw: Draw with the updated information
                 gamePanel.repaint();
                 delta--;
+                fps++;
+            }
+
+            if(second >= 1000000000) {
+                System.out.println("Ticks per second: " + fps);
+                second = 0;
+                fps = 0;
             }
         }
         stop();
@@ -149,7 +171,7 @@ public class GameManager extends Game implements Runnable {
         gameStep = gameStep.next();
         System.out.println("Next step: " + gameStep.toString());
         newMap();
-        gamePanel.setState(GamePanel.SCREEN_STATE.GAME);
+        gamePanel.setInGameScreen(map);
     }
 
     public synchronized void loadGameButton() {
@@ -166,7 +188,7 @@ public class GameManager extends Game implements Runnable {
         inGame = true;
         gameStep = gameStep.next();
         System.out.println("Next step: " + gameStep.toString());
-        Map map = Map.defaultMapCreator(gamePanel);
+        Map map = Map.defaultMapCreator(gamePanel, camera);
         handler.addObject(map);
         map.setVisible(true);
         gamePanel.setState(GamePanel.SCREEN_STATE.GAME);
@@ -174,7 +196,7 @@ public class GameManager extends Game implements Runnable {
 
     public synchronized void newMap() {
         System.out.println("Create Map");
-        map = new Map(ID.Map, gamePanel.getScreenWidth(), gamePanel.getScreenHeight(), gamePanel.getTileSize(), defaultTerrain);
+        map = new Map(ID.Map, camera, gamePanel.getScreenWidth(), gamePanel.getScreenHeight(), gamePanel.getTileSize(), defaultTerrain);
 
         handler.addObject(map);
         map.setVisible(true);

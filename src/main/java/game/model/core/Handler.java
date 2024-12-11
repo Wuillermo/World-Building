@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 public class Handler {
 
-    public LinkedList<GameObject> object = new LinkedList<GameObject>();
+    public LinkedList<GameObject> object = new LinkedList<>();
 
     public void update(){
         for(GameObject tempObject : object) {

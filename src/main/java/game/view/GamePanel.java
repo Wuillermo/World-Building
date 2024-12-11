@@ -2,9 +2,11 @@ package game.view;
 
 import game.controller.InputManager;
 import game.model.core.Handler;
+import game.model.map.Map;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel {
@@ -20,10 +22,11 @@ public class GamePanel extends JPanel {
 
     private Handler handler;
     private final MainMenuPanel mainMenu;
+    private final BufferedImage bufferedImage;
+    private Map map;
 
     public enum SCREEN_STATE {
         MAIN_MENU,
-        GAME_MENU,
         GAME
     }
     private SCREEN_STATE SCREENState = SCREEN_STATE.MAIN_MENU;
@@ -32,6 +35,7 @@ public class GamePanel extends JPanel {
     public GamePanel(InputManager inputManager) {
 
         this.mainMenu = new MainMenuPanel(screenWidth);
+        this.bufferedImage = new BufferedImage(screenWidth, screenHeight, BufferedImage.TYPE_INT_RGB);
 
         // Configure the window
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -47,7 +51,9 @@ public class GamePanel extends JPanel {
             @Override
             public void keyTyped(KeyEvent e) {}
             @Override
-            public void keyReleased(KeyEvent e) {}
+            public void keyReleased(KeyEvent e) {
+                inputManager.handleKeyReleased(e);
+            }
         });
 
         addMouseListener(new MouseListener() {
@@ -77,25 +83,31 @@ public class GamePanel extends JPanel {
     }
 
     // METHODS
-    public void update() {
+    /*public void update() {
         // Updates the game every FPS
         if (handler != null && SCREENState == SCREEN_STATE.GAME) {
             handler.update();
         }
-    }
+    }*/
 
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         // Renders the game
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, screenWidth, screenHeight);
 
         if(SCREENState == SCREEN_STATE.GAME && handler != null) {
-            handler.render(g);
+            map.render(g);
+            /*handler.render(g);*/
         }else if(SCREENState == SCREEN_STATE.MAIN_MENU){
             mainMenu.render(g);
         }
     }
 
+    public void setInGameScreen(Map map){
+        this.map = map;
+        this.SCREENState = SCREEN_STATE.GAME;
+    }
     public void setState(SCREEN_STATE SCREENState){
         this.SCREENState = SCREENState;
     }
@@ -114,5 +126,9 @@ public class GamePanel extends JPanel {
     }
     public int getTileSize() {
         return tileSize;
+    }
+
+    public SCREEN_STATE getSCREENState() {
+        return SCREENState;
     }
 }
