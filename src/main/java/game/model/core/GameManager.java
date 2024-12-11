@@ -37,7 +37,7 @@ public class GameManager extends Game implements Runnable {
 
         EventQueue eventQueue = new EventQueue();
         this.inputManager = new InputManager();
-        this.gamePanel = new GamePanel(this, inputManager);
+        this.gamePanel = new GamePanel(inputManager);
         this.eventProcessor = new EventProcessor(this, eventQueue, gamePanel);
         this.gameplayContext = new GameplayContext(eventQueue);
         this.menuContext = new MenuContext(eventQueue, gamePanel);
@@ -128,10 +128,6 @@ public class GameManager extends Game implements Runnable {
         inputManager.setContext(gameplayContext);
     }
 
-    public InputManager getInputManager() {
-        return inputManager;
-    }
-
     // CREATE A NEW GAME
     // TODO Organize steps to create the full game and save at the end
     private void createNewGame(Object... config) {
@@ -202,13 +198,5 @@ public class GameManager extends Game implements Runnable {
     }
     public synchronized void stopRunning() {
         this.isRunning = false;
-    }
-
-    public Thread getGameThread() {
-        return gameThread;
-    }
-
-    public GamePanel getGamePanel() {
-        return gamePanel;
     }
 }

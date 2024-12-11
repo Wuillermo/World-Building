@@ -21,7 +21,7 @@ public class EventProcessor implements Runnable {
             if(eventQueue.hasEvents()) {
                 Event event = eventQueue.getNextEvent();
 
-                switch(event.getType()) {
+                switch(event.type()) {
                     case NEW_GAME -> {
                         gameManager.newGameButton();
                         gameManager.switchToGameplayContext();
@@ -34,9 +34,7 @@ public class EventProcessor implements Runnable {
                         gamePanel.setState(GamePanel.SCREEN_STATE.MAIN_MENU);
                         gameManager.switchToMenuContext();
                     }
-                    case QUIT_GAME -> {
-                        gameManager.stopRunning();
-                    }
+                    case QUIT_GAME -> gameManager.stopRunning();
                 }
             }
         }

@@ -3,7 +3,7 @@ package game.controller;
 import game.controller.Events.Event;
 import game.controller.Events.EventQueue;
 import game.view.GamePanel;
-import game.view.MainMenu;
+import game.view.MainMenuPanel;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -11,8 +11,6 @@ import java.awt.event.MouseEvent;
 
 public class MenuContext implements InputContextInterface {
     private final EventQueue eventQueue;
-    private final GamePanel gamePanel;
-    private final MainMenu mainMenu;
     private final Rectangle playButton;
     private final Rectangle loadButton;
     private final Rectangle initialMapButton;
@@ -20,8 +18,7 @@ public class MenuContext implements InputContextInterface {
 
     public MenuContext(EventQueue eventQueue, GamePanel gamePanel) {
         this.eventQueue = eventQueue;
-        this.gamePanel = gamePanel;
-        this.mainMenu = gamePanel.getMenu();
+        MainMenuPanel mainMenu = gamePanel.getMenu();
         this.playButton = mainMenu.playButton;
         this.loadButton = mainMenu.loadButton;
         this.initialMapButton = mainMenu.initialMapButton;
@@ -49,7 +46,7 @@ public class MenuContext implements InputContextInterface {
         // DEFAULT button
         else if((mx >= initialMapButton.x) && (mx <= (initialMapButton.x + initialMapButton.width))
                 &&(my >= initialMapButton.y) && (my <= (initialMapButton.y + initialMapButton.height))) {
-
+            System.out.println("Default button pressed");
         }
         // QUIT button
         else if((mx >= quitButton.x) && (mx <= (quitButton.x + quitButton.width))

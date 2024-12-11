@@ -4,23 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e14d79d1-6628-4b59-a2bf-293a9455f7dd" name="Changes" comment="Added methods to the game abstract class">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/controller/Events/Event.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/controller/Events/EventProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/controller/Events/EventQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/controller/GameplayContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/controller/InputContextInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/controller/MenuContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/GameWindow.java" afterDir="false" />
+    <list default="true" id="e14d79d1-6628-4b59-a2bf-293a9455f7dd" name="Changes" comment="Cleaned main and added the window to its own class. Quit button or window X now wait for cleanup before finishing the program.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/InputManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/KeyController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/MouseController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/core/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/Events/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/Events/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/Events/EventProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/Events/EventProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/MenuContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/MenuContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/model/core/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/GameManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/MainMenuPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +86,14 @@
       <option name="project" value="LOCAL" />
       <updated>1733853541638</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Cleaned main and added the window to its own class. Quit button or window X now wait for cleanup before finishing the program.">
+      <created>1733916080244</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733916080244</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -113,6 +111,7 @@
     <MESSAGE value="Added default/random map creation. Added TODO on GameManager." />
     <MESSAGE value="Reorganized project and added a bit of explanation to everything" />
     <MESSAGE value="Added methods to the game abstract class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added methods to the game abstract class" />
+    <MESSAGE value="Cleaned main and added the window to its own class. Quit button or window X now wait for cleanup before finishing the program." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned main and added the window to its own class. Quit button or window X now wait for cleanup before finishing the program." />
   </component>
 </project>

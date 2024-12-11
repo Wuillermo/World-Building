@@ -1,7 +1,6 @@
 package game.view;
 
 import game.controller.InputManager;
-import game.model.core.GameManager;
 import game.model.core.Handler;
 
 import java.awt.*;
@@ -19,22 +18,20 @@ public class GamePanel extends JPanel {
     private final int screenWidth = tileSize * maxScreenCol;
     private final int screenHeight = tileSize * maxScreenRow;
 
-
-    // GAME ATTRIBUTES
-    private final GameManager gameManager;
     private Handler handler;
-    private final MainMenu mainMenu;
+    private final MainMenuPanel mainMenu;
 
     public enum SCREEN_STATE {
         MAIN_MENU,
         GAME_MENU,
         GAME
-    };
+    }
     private SCREEN_STATE SCREENState = SCREEN_STATE.MAIN_MENU;
 
     // CONSTRUCTOR
-    public GamePanel(GameManager gameManager, InputManager inputManager) {
-        this.gameManager = gameManager;
+    public GamePanel(InputManager inputManager) {
+
+        this.mainMenu = new MainMenuPanel(screenWidth);
 
         // Configure the window
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -76,18 +73,14 @@ public class GamePanel extends JPanel {
             @Override
             public void mouseDragged(MouseEvent e) {}
         });
-
-        this.mainMenu = new MainMenu(this);
         this.setFocusable(true);
     }
 
     // METHODS
     public void update() {
         // Updates the game every FPS
-        if(handler != null) {
-            if (SCREENState == SCREEN_STATE.GAME) {
-                handler.update();
-            }
+        if (handler != null && SCREENState == SCREEN_STATE.GAME) {
+            handler.update();
         }
     }
 
@@ -95,6 +88,7 @@ public class GamePanel extends JPanel {
         // Renders the game
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, screenWidth, screenHeight);
+
         if(SCREENState == SCREEN_STATE.GAME && handler != null) {
             handler.render(g);
         }else if(SCREENState == SCREEN_STATE.MAIN_MENU){
@@ -109,7 +103,7 @@ public class GamePanel extends JPanel {
         this.handler = handler;
     }
 
-    public MainMenu getMenu() {
+    public MainMenuPanel getMenu() {
         return mainMenu;
     }
     public int getScreenWidth() {
@@ -117,9 +111,6 @@ public class GamePanel extends JPanel {
     }
     public int getScreenHeight() {
         return screenHeight;
-    }
-    public SCREEN_STATE getState(){
-        return SCREENState;
     }
     public int getTileSize() {
         return tileSize;
