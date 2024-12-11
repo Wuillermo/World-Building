@@ -2,19 +2,17 @@ package game.view;
 
 import java.awt.*;
 
-public class Menu {
+public class MainMenu {
 
-    // ATTRIBUTES
-    private final GamePanel gamePanel;
-    private int width;
+    private final int width;
     public Rectangle playButton;
     public Rectangle loadButton;
     public Rectangle initialMapButton;
     public Rectangle quitButton;
 
     // CONSTRUCTOR
-    public Menu(GamePanel gamePanel) {
-        this.gamePanel = gamePanel;
+    public MainMenu(GamePanel gamePanel) {
+        // ATTRIBUTES
         this.width = gamePanel.getScreenWidth();
         playButton = new Rectangle(width / 4 + 120, 150, 100, 50);
         loadButton = new Rectangle(width / 4 + 120, 250, 100, 50);

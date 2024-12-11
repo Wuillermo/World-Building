@@ -1,18 +1,17 @@
 package game.model.core;
 
-import game.model.factions.AIPlayer;
 import game.model.map.Map;
-import game.model.factions.Player;
 
 public abstract class Game {
-    protected boolean isRunning;
-    protected Player player;
-    protected AIPlayer[] aiPlayers;
+    protected volatile boolean isRunning;
+    protected volatile boolean threadsRunning;
     protected Map map;
+    protected int turn;
+    protected int gameFactions;
 
     // Probably not needed
     protected enum GameSteps {
-        NOTSTARTED, LOADMAP, INITIALIZEAI, ADDPLAYER, INGAME, QUITGAME;
+        NOT_STARTED, LOAD_MAP, INITIALIZE_AI, ADD_PLAYER, IN_GAME, QUIT_GAME;
 
         private GameSteps prevStep = null;
         private GameSteps nextStep = null;
@@ -34,9 +33,9 @@ public abstract class Game {
         }
 
     }
-    protected GameSteps gameStep = GameSteps.NOTSTARTED;
+    protected GameSteps gameStep = GameSteps.NOT_STARTED;
 
     protected abstract void init();
-    protected abstract void startGameThread();
+    protected abstract void startGameThreads();
     protected abstract void stop();
 }

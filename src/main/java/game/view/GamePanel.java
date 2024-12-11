@@ -1,11 +1,11 @@
 package game.view;
 
+import game.controller.InputManager;
 import game.model.core.GameManager;
 import game.model.core.Handler;
-import game.controller.KeyController;
-import game.controller.MouseController;
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel {
@@ -21,40 +21,73 @@ public class GamePanel extends JPanel {
 
 
     // GAME ATTRIBUTES
-    private GameManager gameManager;
+    private final GameManager gameManager;
     private Handler handler;
-    private final Menu menu;
-    private final KeyController keyController;
-    private final MouseController mouseController;
+    private final MainMenu mainMenu;
 
-    public enum STATE {
-        MENU,
-        GAME;
+    public enum SCREEN_STATE {
+        MAIN_MENU,
+        GAME_MENU,
+        GAME
     };
-    private STATE state = STATE.MENU;
+    private SCREEN_STATE SCREENState = SCREEN_STATE.MAIN_MENU;
 
     // CONSTRUCTOR
-    public GamePanel(GameManager gameManager) {
+    public GamePanel(GameManager gameManager, InputManager inputManager) {
         this.gameManager = gameManager;
-        keyController = new KeyController(this, gameManager);
-        mouseController = new MouseController(this);
 
-        // Make the window
+        // Configure the window
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true); // If set to true, all drawing from this component will be done in an offscreen painting buffer
-        this.addKeyListener(keyController);
-        this.addMouseListener(mouseController);
-        this.setFocusable(true);
 
-        menu = new Menu(this);
+        // Add the Keyboard and Mouse Listeners and bind them to the input manager
+        addKeyListener(new KeyListener() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                inputManager.handleKeyPress(e);
+            }
+            @Override
+            public void keyTyped(KeyEvent e) {}
+            @Override
+            public void keyReleased(KeyEvent e) {}
+        });
+
+        addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                inputManager.handleMouseClick(e);
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {}
+            @Override
+            public void mouseReleased(MouseEvent e) {}
+            @Override
+            public void mouseEntered(MouseEvent e) {}
+            @Override
+            public void mouseExited(MouseEvent e) {}
+        });
+
+        addMouseMotionListener(new MouseMotionListener() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                inputManager.handleMouseMove(e);
+            }
+            @Override
+            public void mouseDragged(MouseEvent e) {}
+        });
+
+        this.mainMenu = new MainMenu(this);
+        this.setFocusable(true);
     }
 
     // METHODS
     public void update() {
         // Updates the game every FPS
-        if(state == STATE.GAME){
-            handler.update();
+        if(handler != null) {
+            if (SCREENState == SCREEN_STATE.GAME) {
+                handler.update();
+            }
         }
     }
 
@@ -62,36 +95,22 @@ public class GamePanel extends JPanel {
         // Renders the game
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, screenWidth, screenHeight);
-        if(state == STATE.GAME) {
+        if(SCREENState == SCREEN_STATE.GAME && handler != null) {
             handler.render(g);
-        }else if(state == STATE.MENU){
-            menu.render(g);
+        }else if(SCREENState == SCREEN_STATE.MAIN_MENU){
+            mainMenu.render(g);
         }
     }
 
-    public void menuButtonPressed(String buttonPressed) {
-        switch(buttonPressed) {
-            case "PLAY" -> {
-                gameManager.playButtonPressed();
-            }
-            case "LOAD" -> {
-                gameManager.loadButtonPressed();
-            }
-            case "DEFAULT" -> {
-                gameManager.defaultInitializing();
-            }
-        }
-    }
-
-    public void setState(STATE state){
-        this.state = state;
+    public void setState(SCREEN_STATE SCREENState){
+        this.SCREENState = SCREENState;
     }
     public void setHandler(Handler handler) {
         this.handler = handler;
     }
 
-    public Menu getMenu() {
-        return menu;
+    public MainMenu getMenu() {
+        return mainMenu;
     }
     public int getScreenWidth() {
         return screenWidth;
@@ -99,8 +118,8 @@ public class GamePanel extends JPanel {
     public int getScreenHeight() {
         return screenHeight;
     }
-    public STATE getState(){
-        return state;
+    public SCREEN_STATE getState(){
+        return SCREENState;
     }
     public int getTileSize() {
         return tileSize;
