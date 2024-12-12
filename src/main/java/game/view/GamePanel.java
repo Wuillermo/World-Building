@@ -1,7 +1,6 @@
 package game.view;
 
 import game.controller.InputManager;
-import game.model.core.Handler;
 import game.model.map.GameMap;
 
 import java.awt.*;
@@ -19,7 +18,6 @@ public class GamePanel extends JPanel {
     private final int screenWidth = 1296;
     private final int screenHeight = 960;
 
-    private Handler handler;
     private final MainMenuPanel mainMenu;
     private GameMap gameMap;
 
@@ -93,7 +91,7 @@ public class GamePanel extends JPanel {
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, screenWidth, screenHeight);
 
-        if(SCREENState == SCREEN_STATE.GAME && handler != null) {
+        if(SCREENState == SCREEN_STATE.GAME) {
             gameMap.render(g);
             /*handler.render(g);*/
         }else if(SCREENState == SCREEN_STATE.MAIN_MENU){
@@ -107,9 +105,6 @@ public class GamePanel extends JPanel {
     }
     public void setState(SCREEN_STATE SCREENState){
         this.SCREENState = SCREENState;
-    }
-    public void setHandler(Handler handler) {
-        this.handler = handler;
     }
 
     public MainMenuPanel getMenu() {

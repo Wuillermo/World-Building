@@ -67,8 +67,7 @@ public class GameManager extends Game implements Runnable {
         this.gameFactions = 1;
         this.turn = 0;
         handler = new Handler();
-        handler.addObject(camera);
-        gamePanel.setHandler(handler);
+        handler.addTopLevelObject(camera);
     }
 
     // Start the game loop
@@ -187,7 +186,7 @@ public class GameManager extends Game implements Runnable {
         System.out.println("Create Map");
         gameMap = GameMap.randomMapCreator(gamePanel, camera, gamePanel.getTileSize());
 
-        handler.addObject(gameMap);
+        handler.addMapLevelObject(gameMap);
         gameMap.setVisible(true);
     }
 
@@ -195,7 +194,7 @@ public class GameManager extends Game implements Runnable {
         System.out.println("Load Map");
         gameMap = MapIO.load();
 
-        handler.addObject(gameMap);
+        handler.addMapLevelObject(gameMap);
         gameMap.setVisible(true);
     }
 
