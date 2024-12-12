@@ -5,9 +5,8 @@ import game.controller.Events.EventQueue;
 import game.controller.GameplayContext;
 import game.controller.InputManager;
 import game.controller.MenuContext;
-import game.model.map.Map;
+import game.model.map.GameMap;
 import game.model.map.MapIO;
-import game.model.map.TerrainType;
 import game.view.Camera;
 import game.view.GamePanel;
 import game.view.GameWindow;
@@ -31,11 +30,10 @@ public class GameManager extends Game implements Runnable {
 
     // In-game
     private final Camera camera;
-    private Map map;
+    private GameMap gameMap;
 
     // Control
     private boolean inGame;
-    private final TerrainType defaultTerrain;
 
     public GameManager() {
         // Create the window
@@ -51,7 +49,6 @@ public class GameManager extends Game implements Runnable {
         this.isRunning = false;
         this.threadsRunning = false;
         this.inGame = false;
-        this.defaultTerrain = TerrainType.PLAINS;
 
         this.window.add(gamePanel);
         this.window.showOnScreen();
@@ -109,7 +106,6 @@ public class GameManager extends Game implements Runnable {
         // ATTRIBUTES
         int FPS = 60;
         int fps = 0;
-        int frames = 0;
         double second = 0;
         double drawInterval = 1_000_000_000f/ FPS;
         double delta = 0;
@@ -171,7 +167,7 @@ public class GameManager extends Game implements Runnable {
         gameStep = gameStep.next();
         System.out.println("Next step: " + gameStep.toString());
         newMap();
-        gamePanel.setInGameScreen(map);
+        gamePanel.setInGameScreen(gameMap);
     }
 
     public synchronized void loadGameButton() {
@@ -185,33 +181,26 @@ public class GameManager extends Game implements Runnable {
 
     public void defaultInitializing() {
         if(inGame) return;
-        inGame = true;
-        gameStep = gameStep.next();
-        System.out.println("Next step: " + gameStep.toString());
-        Map map = Map.defaultMapCreator(gamePanel, camera);
-        handler.addObject(map);
-        map.setVisible(true);
-        gamePanel.setState(GamePanel.SCREEN_STATE.GAME);
     }
 
     public synchronized void newMap() {
         System.out.println("Create Map");
-        map = new Map(ID.Map, camera, gamePanel.getScreenWidth(), gamePanel.getScreenHeight(), gamePanel.getTileSize(), defaultTerrain);
+        gameMap = GameMap.randomMapCreator(gamePanel, camera, gamePanel.getTileSize());
 
-        handler.addObject(map);
-        map.setVisible(true);
+        handler.addObject(gameMap);
+        gameMap.setVisible(true);
     }
 
     private synchronized void loadMap() {
         System.out.println("Load Map");
-        map = MapIO.load();
+        gameMap = MapIO.load();
 
-        handler.addObject(map);
-        map.setVisible(true);
+        handler.addObject(gameMap);
+        gameMap.setVisible(true);
     }
 
     public synchronized void saveMap() {
-        MapIO.save(map);
+        MapIO.save(gameMap);
         System.out.println("Map Saved");
     }
 

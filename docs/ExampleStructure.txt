@@ -6,7 +6,7 @@ WorldBuilding/
 │   │       │   ├── core/
 │   │       │   │   ├── Game.java
 │   │       │   │   ├── TurnManager.java
-│   │       │   ├── world/          # World map and geography
+│   │       │   ├── world/          # World gameMap and geography
 │   │       │   │   ├── World.java
 │   │       │   │   ├── Tile.java
 │   │       │   │   ├── TerrainType.java

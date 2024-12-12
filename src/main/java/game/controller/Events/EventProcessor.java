@@ -4,8 +4,6 @@ import game.model.core.GameManager;
 import game.view.Camera;
 import game.view.GamePanel;
 
-import javax.swing.*;
-
 public class EventProcessor implements Runnable {
 
     private final GameManager gameManager;

@@ -7,7 +7,7 @@ public class Tile implements Serializable {
 
     // ATTRIBUTES
     private final int x, y;
-    private final TerrainType terrain;
+    private TerrainType terrain;
 
     // CONSTRUCTOR
     public Tile(int x, int y, TerrainType terrain) {
@@ -18,5 +18,17 @@ public class Tile implements Serializable {
 
     public TerrainType getTerrain() {
         return terrain;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setTerrain(TerrainType terrain) {
+        this.terrain = terrain;
     }
 }

@@ -2,15 +2,17 @@ package game.model.map;
 
 import java.awt.*;
 import java.io.Serializable;
+import java.util.Random;
 
 public enum TerrainType implements Serializable {
     // Enum instances representing each terrain type
-    PLAINS("Plains", 1, 1, 1, true, false, Color.GREEN),
-    HILLS("Hills", 2, 0, 2, true, false, Color.WHITE),
-    FOREST("Forest", 3, 2, 1, true, false, Color.DARK_GRAY),
-    DESERT("Desert", 1, 0, 0, true, false, Color.yellow),
-    MOUNTAIN("Mountain", Integer.MAX_VALUE, 0, 0, false, false, Color.MAGENTA),
-    WATER("Water", Integer.MAX_VALUE, 0, 0, false, true, Color.BLUE);
+    PLAINS("Plains", 1, 1, 1, true, false, new Color(71,182,37)),
+    HILLS("Hills", 2, 0, 2, true, false, new Color(178,121,12)),
+    FOREST("Forest", 3, 2, 1, true, false, new Color(15,114,22)),
+    DESERT("Desert", 1, 0, 0, true, false, new Color(208,176,45)),
+    MOUNTAIN("Mountain", Integer.MAX_VALUE, 0, 0, false, false, new Color(116,204,140)),
+    WATER("Water", Integer.MAX_VALUE, 0, 0, false, true, Color.BLUE),
+    ICE("Ice", Integer.MAX_VALUE, 0, 0, false, false, Color.WHITE);
 
     // Attributes for each terrain
     private final String name;          // Friendly name
@@ -30,6 +32,10 @@ public enum TerrainType implements Serializable {
         this.isBuildable = isBuildable;
         this.isNavigable = isNavigable;
         this.color = color;
+    }
+
+    public static TerrainType getRandomTerrainFromOther(TerrainType terrainType, Random random) {
+        return PLAINS;
     }
 
     // Getters

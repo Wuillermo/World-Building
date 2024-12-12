@@ -2,28 +2,26 @@ package game.view;
 
 import game.controller.InputManager;
 import game.model.core.Handler;
-import game.model.map.Map;
+import game.model.map.GameMap;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel {
 
     // SCREEN SETTINGS
     private final int originalTileSize = 16; //16x16 tile
-    private final int scale = 3;
+    private final int scale = 2;
     private final int tileSize = originalTileSize * scale; //48x48 displayed tile size
     private final int maxScreenCol = 27;
     private final int maxScreenRow = 20;
-    private final int screenWidth = tileSize * maxScreenCol;
-    private final int screenHeight = tileSize * maxScreenRow;
+    private final int screenWidth = 1296;
+    private final int screenHeight = 960;
 
     private Handler handler;
     private final MainMenuPanel mainMenu;
-    private final BufferedImage bufferedImage;
-    private Map map;
+    private GameMap gameMap;
 
     public enum SCREEN_STATE {
         MAIN_MENU,
@@ -35,7 +33,6 @@ public class GamePanel extends JPanel {
     public GamePanel(InputManager inputManager) {
 
         this.mainMenu = new MainMenuPanel(screenWidth);
-        this.bufferedImage = new BufferedImage(screenWidth, screenHeight, BufferedImage.TYPE_INT_RGB);
 
         // Configure the window
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -97,15 +94,15 @@ public class GamePanel extends JPanel {
         g.fillRect(0, 0, screenWidth, screenHeight);
 
         if(SCREENState == SCREEN_STATE.GAME && handler != null) {
-            map.render(g);
+            gameMap.render(g);
             /*handler.render(g);*/
         }else if(SCREENState == SCREEN_STATE.MAIN_MENU){
             mainMenu.render(g);
         }
     }
 
-    public void setInGameScreen(Map map){
-        this.map = map;
+    public void setInGameScreen(GameMap gameMap){
+        this.gameMap = gameMap;
         this.SCREENState = SCREEN_STATE.GAME;
     }
     public void setState(SCREEN_STATE SCREENState){
@@ -127,7 +124,12 @@ public class GamePanel extends JPanel {
     public int getTileSize() {
         return tileSize;
     }
-
+    public int getMaxScreenCol() {
+        return maxScreenCol;
+    }
+    public int getMaxScreenRow() {
+        return maxScreenRow;
+    }
     public SCREEN_STATE getSCREENState() {
         return SCREENState;
     }

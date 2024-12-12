@@ -4,22 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e14d79d1-6628-4b59-a2bf-293a9455f7dd" name="Changes" comment="Made Event into a recorded class. The menu looks decent now.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/controller/KeyboardAnimation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/Camera.java" afterDir="false" />
+    <list default="true" id="e14d79d1-6628-4b59-a2bf-293a9455f7dd" name="Changes" comment="Made the camera show the Map (still needs fixing) and WASD movement to the camera">
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/model/map/GameMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/CameraController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/Events/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/Events/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ExampleStructure.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ExampleStructure.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/Events/EventProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/Events/EventProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/GameplayContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/GameplayContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/InputContextInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/InputContextInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/InputManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/MenuContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/MenuContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/core/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/model/core/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/GameManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/core/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/Handler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/core/ID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/ID.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/map/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/map/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/map/Map.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/map/MapIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/map/MapIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/map/TerrainType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/map/TerrainType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/map/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/map/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/GamePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1733920665906</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Made the camera show the Map (still needs fixing) and WASD movement to the camera">
+      <created>1733935159752</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733935159752</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,6 +132,7 @@
     <MESSAGE value="Added methods to the game abstract class" />
     <MESSAGE value="Cleaned main and added the window to its own class. Quit button or window X now wait for cleanup before finishing the program." />
     <MESSAGE value="Made Event into a recorded class. The menu looks decent now." />
-    <option name="LAST_COMMIT_MESSAGE" value="Made Event into a recorded class. The menu looks decent now." />
+    <MESSAGE value="Made the camera show the Map (still needs fixing) and WASD movement to the camera" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made the camera show the Map (still needs fixing) and WASD movement to the camera" />
   </component>
 </project>

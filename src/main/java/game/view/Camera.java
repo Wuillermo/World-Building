@@ -7,6 +7,8 @@ import java.awt.*;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// TODO stop the camera from being able to move infinitely to the right and bottom
+
 public class Camera extends GameObject {
     enum CAMERA_MOVES {
         CAMERA_UP, CAMERA_DOWN, CAMERA_LEFT, CAMERA_RIGHT
@@ -16,9 +18,13 @@ public class Camera extends GameObject {
 
     private int topLeftX;
     private int topLeftY;
+    private final int width;
+    private final int height;
 
     public Camera(int width, int height) {
         super(ID.Camera);
+        this.width = width;
+        this.height = height;
         this.camera_moves = new LinkedList<>();
 
         topLeftX = 0;
@@ -30,22 +36,22 @@ public class Camera extends GameObject {
         for (CAMERA_MOVES move : camera_moves) {
             switch (move) {
                 case CAMERA_UP -> {
-                    if (topLeftY >= 2) {
+                    if (topLeftY >= -7) {
                         topLeftY -= 7;
                     }
                 }
                 case CAMERA_DOWN -> {
-                    if (topLeftY <= 200000) {
+                    if (topLeftY + height <= 200000) {
                         topLeftY += 7;
                     }
                 }
                 case CAMERA_LEFT -> {
-                    if (topLeftX >= 2) {
+                    if (topLeftX >= -7) {
                         topLeftX -= 7;
                     }
                 }
                 case CAMERA_RIGHT -> {
-                    if (topLeftX <= 200000) {
+                    if (topLeftX + width <= 200000) {
                         topLeftX += 7;
                     }
                 }

@@ -1,11 +1,11 @@
 package game.model.core;
 
-import game.model.map.Map;
+import game.model.map.GameMap;
 
 public abstract class Game {
     protected volatile boolean isRunning;
     protected volatile boolean threadsRunning;
-    protected Map map;
+    protected GameMap gameMap;
     protected int turn;
     protected int gameFactions;
 

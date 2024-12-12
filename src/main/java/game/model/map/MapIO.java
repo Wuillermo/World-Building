@@ -5,7 +5,7 @@ import java.net.URL;
 
 public class MapIO {
 
-    public static void save(Map gameMap) {
+    public static void save(GameMap gameMap) {
         final URL urlToResourcesFolder = MapIO.class.getResource("/");
         File mapsFolder = new File(urlToResourcesFolder.getFile() + "/maps/");
 
@@ -20,11 +20,11 @@ public class MapIO {
         }
     }
 
-    public static Map load() {
+    public static GameMap load() {
         try(ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(MapIO.class.getResource("/maps/map.mp").getFile()))) {
-            Map loadedMap = (Map) objectInputStream.readObject();
-            System.out.println("Loaded Map ID: " + loadedMap.getId());
-            return loadedMap;
+            GameMap loadedGameMap = (GameMap) objectInputStream.readObject();
+            System.out.println("Loaded Map ID: " + loadedGameMap.getId());
+            return loadedGameMap;
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
