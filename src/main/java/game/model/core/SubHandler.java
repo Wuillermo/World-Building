@@ -19,7 +19,7 @@ public class SubHandler {
 
     public void render(Graphics g) {
         for(GameObject tempObject : gameObjects) {
-            tempObject.render(g);
+            if(tempObject.isVisible) tempObject.render(g);
         }
     }
 

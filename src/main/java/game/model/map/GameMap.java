@@ -3,10 +3,8 @@ package game.model.map;
 import game.model.core.GameObject;
 import game.model.core.ID;
 import game.view.Camera;
-import game.view.GamePanel;
 
 import java.awt.*;
-import java.awt.List;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.*;
@@ -81,7 +79,7 @@ public class GameMap extends GameObject {
     }
 
     // Creates a completely Random map following the most simple rules possible
-    public static GameMap randomMapCreator(GamePanel gamePanel, Camera camera, int tileSize) {
+    public static GameMap randomMapCreator(Camera camera, int tileSize) {
 
         int cols = 80;
         int rows = 75;

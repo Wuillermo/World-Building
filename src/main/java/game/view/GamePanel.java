@@ -1,6 +1,7 @@
 package game.view;
 
 import game.controller.InputManager;
+import game.model.core.Handler;
 import game.model.map.GameMap;
 
 import java.awt.*;
@@ -20,6 +21,7 @@ public class GamePanel extends JPanel {
 
     private final MainMenuPanel mainMenu;
     private GameMap gameMap;
+    private final Handler handler;
 
     public enum SCREEN_STATE {
         MAIN_MENU,
@@ -28,9 +30,10 @@ public class GamePanel extends JPanel {
     private SCREEN_STATE SCREENState = SCREEN_STATE.MAIN_MENU;
 
     // CONSTRUCTOR
-    public GamePanel(InputManager inputManager) {
+    public GamePanel(InputManager inputManager, Handler handler) {
 
         this.mainMenu = new MainMenuPanel(screenWidth);
+        this.handler = handler;
 
         // Configure the window
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -78,13 +81,6 @@ public class GamePanel extends JPanel {
     }
 
     // METHODS
-    /*public void update() {
-        // Updates the game every FPS
-        if (handler != null && SCREENState == SCREEN_STATE.GAME) {
-            handler.update();
-        }
-    }*/
-
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         // Renders the game
@@ -93,7 +89,6 @@ public class GamePanel extends JPanel {
 
         if(SCREENState == SCREEN_STATE.GAME) {
             gameMap.render(g);
-            /*handler.render(g);*/
         }else if(SCREENState == SCREEN_STATE.MAIN_MENU){
             mainMenu.render(g);
         }

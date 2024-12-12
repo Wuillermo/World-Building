@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e14d79d1-6628-4b59-a2bf-293a9455f7dd" name="Changes" comment="A very simple random map works now">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/model/core/SubHandler.java" afterDir="false" />
+    <list default="true" id="e14d79d1-6628-4b59-a2bf-293a9455f7dd" name="Changes" comment="Added Handler priority with a SubHandler Queue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/KeyboardAnimation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/Events/EventQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/Events/EventQueue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/model/core/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/GameManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/core/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/Handler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/core/SubHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/SubHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/map/GameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/map/GameMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/map/TerrainType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/map/TerrainType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/GamePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1734018379492</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added Handler priority with a SubHandler Queue">
+      <created>1734020211509</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1734020211509</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,6 +143,7 @@
     <MESSAGE value="Made Event into a recorded class. The menu looks decent now." />
     <MESSAGE value="Made the camera show the Map (still needs fixing) and WASD movement to the camera" />
     <MESSAGE value="A very simple random map works now" />
-    <option name="LAST_COMMIT_MESSAGE" value="A very simple random map works now" />
+    <MESSAGE value="Added Handler priority with a SubHandler Queue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Handler priority with a SubHandler Queue" />
   </component>
 </project>

@@ -19,7 +19,7 @@ public class GameManager extends Game implements Runnable {
     private final GamePanel gamePanel;
 
     // Handler
-    private Handler handler;
+    private final Handler handler;
 
     // Input
     private final InputManager inputManager;
@@ -41,7 +41,8 @@ public class GameManager extends Game implements Runnable {
 
         EventQueue eventQueue = new EventQueue();
         this.inputManager = new InputManager();
-        this.gamePanel = new GamePanel(inputManager);
+        handler = new Handler();
+        this.gamePanel = new GamePanel(inputManager, handler);
         this.gameplayContext = new GameplayContext(eventQueue);
         this.menuContext = new MenuContext(eventQueue, gamePanel);
         this.camera = new Camera(gamePanel.getScreenWidth(), gamePanel.getScreenHeight());
@@ -59,14 +60,13 @@ public class GameManager extends Game implements Runnable {
     // METHODS
     // Initialize the game
     public void startGame() {
-        startGameThreads();
         init();
+        startGameThreads();
     }
 
     protected void init() {
         this.gameFactions = 1;
         this.turn = 0;
-        handler = new Handler();
         handler.addTopLevelObject(camera);
     }
 
@@ -119,8 +119,7 @@ public class GameManager extends Game implements Runnable {
 
             if(delta >= 1){
                 // Update: Update information
-                if(gamePanel.getSCREENState() == GamePanel.SCREEN_STATE.GAME) handler.update();
-                /*gamePanel.update();*/
+                update();
                 // Draw: Draw with the updated information
                 gamePanel.repaint();
                 delta--;
@@ -134,6 +133,10 @@ public class GameManager extends Game implements Runnable {
             }
         }
         stop();
+    }
+
+    private void update() {
+        if(gamePanel.getSCREENState() == GamePanel.SCREEN_STATE.GAME) handler.update();
     }
 
     // CALLED BY OTHER THREADS
@@ -184,7 +187,7 @@ public class GameManager extends Game implements Runnable {
 
     public synchronized void newMap() {
         System.out.println("Create Map");
-        gameMap = GameMap.randomMapCreator(gamePanel, camera, gamePanel.getTileSize());
+        gameMap = GameMap.randomMapCreator(camera, gamePanel.getTileSize());
 
         handler.addMapLevelObject(gameMap);
         gameMap.setVisible(true);

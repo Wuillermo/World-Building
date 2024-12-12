@@ -1,7 +1,5 @@
 package game.controller.Events;
 
-import game.controller.Events.Event;
-
 import java.util.LinkedList;
 import java.util.Queue;
 

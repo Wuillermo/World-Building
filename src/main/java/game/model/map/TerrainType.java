@@ -2,7 +2,6 @@ package game.model.map;
 
 import java.awt.*;
 import java.io.Serializable;
-import java.util.Random;
 
 public enum TerrainType implements Serializable {
     // Enum instances representing each terrain type
@@ -32,10 +31,6 @@ public enum TerrainType implements Serializable {
         this.isBuildable = isBuildable;
         this.isNavigable = isNavigable;
         this.color = color;
-    }
-
-    public static TerrainType getRandomTerrainFromOther(TerrainType terrainType, Random random) {
-        return PLAINS;
     }
 
     // Getters
