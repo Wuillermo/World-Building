@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e14d79d1-6628-4b59-a2bf-293a9455f7dd" name="Changes" comment="Added Handler priority with a SubHandler Queue">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/Events/EventQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/Events/EventQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ExampleStructure.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ExampleStructure.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/model/core/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/GameManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/core/SubHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/core/SubHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/factions/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/ai/AIPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/model/map/GameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/map/GameMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/map/TerrainType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/map/TerrainType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/Camera.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +35,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />

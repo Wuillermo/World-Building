@@ -24,6 +24,8 @@ public class GameMap extends GameObject {
     private final int maxColumns;
     private final int maxRows;
     private final int tileSize;
+    private final int mapXSize;
+    private final int mapYSize;
 
     public GameMap(ID id, Camera camera, int maxColumns, int maxRows, int tileSize) {
         super(id);
@@ -34,8 +36,8 @@ public class GameMap extends GameObject {
         this.maxColumns = maxColumns;
         this.maxRows = maxRows;
         this.tileSize = tileSize;
-        int mapXSize = maxColumns * tileSize;
-        int mapYSize = maxRows * tileSize;
+        this.mapXSize = maxColumns * tileSize;
+        this.mapYSize = maxRows * tileSize;
         this.bufferedImage = new BufferedImage(mapXSize, mapYSize, BufferedImage.TYPE_INT_ARGB);
         this.tiles = new Tile[maxRows][maxColumns];
         generateDefaultMap();
@@ -239,5 +241,13 @@ public class GameMap extends GameObject {
 
     public Tile[][] getTiles() {
         return tiles;
+    }
+
+    public int getMapXSize() {
+        return mapXSize;
+    }
+
+    public int getMapYSize() {
+        return mapYSize;
     }
 }

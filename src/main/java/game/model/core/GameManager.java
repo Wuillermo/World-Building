@@ -188,6 +188,7 @@ public class GameManager extends Game implements Runnable {
     public synchronized void newMap() {
         System.out.println("Create Map");
         gameMap = GameMap.randomMapCreator(camera, gamePanel.getTileSize());
+        camera.setGameMap(gameMap);
 
         handler.addMapLevelObject(gameMap);
         gameMap.setVisible(true);

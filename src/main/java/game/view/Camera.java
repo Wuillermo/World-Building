@@ -2,6 +2,7 @@ package game.view;
 
 import game.model.core.GameObject;
 import game.model.core.ID;
+import game.model.map.GameMap;
 
 import java.awt.*;
 import java.util.LinkedList;
@@ -18,6 +19,7 @@ public class Camera extends GameObject {
 
     private int topLeftX;
     private int topLeftY;
+    private GameMap gameMap;
     private final int width;
     private final int height;
 
@@ -41,7 +43,7 @@ public class Camera extends GameObject {
                     }
                 }
                 case CAMERA_DOWN -> {
-                    if (topLeftY + height <= 200000) {
+                    if (topLeftY + height <= gameMap.getMapYSize() + 7) {
                         topLeftY += 7;
                     }
                 }
@@ -51,7 +53,7 @@ public class Camera extends GameObject {
                     }
                 }
                 case CAMERA_RIGHT -> {
-                    if (topLeftX + width <= 200000) {
+                    if (topLeftX + width <= gameMap.getMapXSize() + 7) {
                         topLeftX += 7;
                     }
                 }
@@ -65,22 +67,22 @@ public class Camera extends GameObject {
     }
 
     public void cameraUp() {
-        if(!camera_moves.contains(CAMERA_MOVES.CAMERA_UP)) {
+        if(!camera_moves.contains(CAMERA_MOVES.CAMERA_UP) && gameMap != null) {
             camera_moves.add(CAMERA_MOVES.CAMERA_UP);
         }
     }
     public void cameraDown() {
-        if(!camera_moves.contains(CAMERA_MOVES.CAMERA_DOWN)) {
+        if(!camera_moves.contains(CAMERA_MOVES.CAMERA_DOWN) && gameMap != null) {
             camera_moves.add(CAMERA_MOVES.CAMERA_DOWN);
         }
     }
     public void cameraLeft() {
-        if(!camera_moves.contains(CAMERA_MOVES.CAMERA_LEFT)) {
+        if(!camera_moves.contains(CAMERA_MOVES.CAMERA_LEFT) && gameMap != null) {
             camera_moves.add(CAMERA_MOVES.CAMERA_LEFT);
         }
     }
     public void cameraRight() {
-        if(!camera_moves.contains(CAMERA_MOVES.CAMERA_RIGHT)) {
+        if(!camera_moves.contains(CAMERA_MOVES.CAMERA_RIGHT) && gameMap != null) {
             camera_moves.add(CAMERA_MOVES.CAMERA_RIGHT);
         }
     }
@@ -103,5 +105,9 @@ public class Camera extends GameObject {
 
     public int getTopLeftY() {
         return topLeftY;
+    }
+
+    public void setGameMap(GameMap gameMap) {
+        this.gameMap = gameMap;
     }
 }

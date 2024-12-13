@@ -2,51 +2,59 @@ WorldBuilding/
 ├── src/
 │   ├── main/
 │   │   └── java/game/
-│   │       ├── model/              # Game data and logic
-│   │       │   ├── core/
-│   │       │   │   ├── Game.java
-│   │       │   │   ├── TurnManager.java
-│   │       │   ├── world/          # World gameMap and geography
-│   │       │   │   ├── World.java
-│   │       │   │   ├── Tile.java
-│   │       │   │   ├── TerrainType.java
-│   │       │   │   ├── Resource.java
-│   │       │   │   ├── ResourceType.java
-│   │       │   ├── factions/       # Factions, players, and diplomacy
-│   │       │   │   ├── Player.java
-│   │       │   │   ├── Faction.java
-│   │       │   │   ├── Leader.java
-│   │       │   │   ├── UniqueAbility.java
-│   │       │   ├── city/           # Cities and economy
-│   │       │   │   ├── City.java
-│   │       │   │   ├── Building.java
-│   │       │   │   ├── BuildingType.java
-│   │       │   ├── units/          # Units and combat
-│   │       │   │   ├── Unit.java
-│   │       │   │   ├── UnitType.java
-│   │       │   │   ├── CombatManager.java
-│   │       │   ├── ai/             # AI and decision-making
-│   │       │   │   ├── AIPlayer.java
-│   │       │   │   ├── AIManager.java
-│   │       │   ├── util/           # Utilities and support functions
-│   │       │       ├── Pathfinding.java
-│   │       │       ├── RandomEventGenerator.java
-│   │       │       ├── Event.java
-│   │       │       ├── GameLogger.java
-│   │       ├── view/              # Game presentation (UI, rendering)
-│   │       │   ├── GameView.java
-│   │       │   ├── MapRenderer.java
-│   │       │   ├── HUDRenderer.java
-│   │       │   ├── Sprite.java
-│   │       │   ├── TextureManager.java
-│   │       │   └── AnimationManager.java
-│   │       ├── controller/        # User input, camera, and game control
-│   │       │   ├── InputManager.java
-│   │       │   ├── MouseController.java
-│   │       │   ├── KeyboardController.java
-│   │       │   ├── CameraController.java
-│   │       │   └── GameController.java
-│   │       ├── Main.java          # Entry point for the game
+│   │           ├── model/              # Game data and logic
+│   │           │   ├── core/
+│   │           │   │   ├── Game.java
+│   │           │   │   ├── GameManager.java
+│   │           │   │   ├── GameObject.java
+│   │           │   │   ├── Handler.java
+│   │           │   │   ├── SubHandler.java
+│   │           │   │   ├── ID.java
+│   │           │   ├── map/          # World gameMap and geography
+│   │           │   │   ├── GameMap.java
+│   │           │   │   ├── MapIO.java
+│   │           │   │   ├── TerrainType.java
+│   │           │   │   ├── Resource.java
+│   │           │   │   ├── Tile.java
+│   │           │   ├── factions/       # Factions, players, and diplomacy
+│   │           │   │   ├── Player.java
+│   │           │   │   ├── Faction.java
+│   │           │   │   ├── Leader.java
+│   │           │   │   ├── Relationship.java
+│   │           │   ├── city/           # Cities and economy
+│   │           │   │   ├── City.java
+│   │           │   │   ├── Building.java
+│   │           │   │   ├── BuildingType.java
+│   │           │   ├── units/          # Units and combat
+│   │           │   │   ├── Unit.java
+│   │           │   │   ├── UnitType.java
+│   │           │   │   ├── CombatManager.java
+│   │           │   ├── ai/             # AI and decision-making
+│   │           │   │   ├── AIPlayer.java
+│   │           │   │   ├── AIManager.java
+│   │           │   ├── util/           # Utilities and support functions
+│   │           │       ├── Pathfinding.java
+│   │           │       ├── RandomEventGenerator.java
+│   │           │       ├── Event.java
+│   │           │       ├── GameLogger.java
+│   │           ├── view/              # Game presentation (UI, rendering)
+│   │           │   ├── GamePanel.java
+│   │           │   ├── Camera.java
+│   │           │   ├── GameWindow.java
+│   │           │   ├── MainMenuPanel.java
+│   │           │   ├── TextureManager.java
+│   │           │   ├── Sprite.java
+│   │           │   └── AnimationManager.java
+│   │           ├── controller/        # User input, camera, and game control
+│   │           │   ├── events/
+│   │           │   │   ├── Event.java
+│   │           │   │   ├── EventProcessor.java
+│   │           │   │   ├── EventQueue.java
+│   │           │   ├── InputManager.java
+│   │           │   ├── InputContextInterface.java
+│   │           │   ├── GameplayContext.java
+│   │           │   ├── MenuContext.java
+│   │           ├── Main.java          # Entry point for the game
 ├── assets/
 │   ├── images/                     # Game images and textures
 │   ├── sounds/                     # Sound effects and music
