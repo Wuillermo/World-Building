@@ -1,6 +1,7 @@
 package game.controller.Events;
 
 import game.model.core.GameManager;
+import game.model.ecs.components.MovementComponent;
 import game.view.Camera;
 import game.view.GamePanel;
 
@@ -9,13 +10,13 @@ public class EventProcessor implements Runnable {
     private final GameManager gameManager;
     private final EventQueue eventQueue;
     private final GamePanel gamePanel;
-    private final Camera camera;
+    private final MovementComponent cameraMovement;
 
-    public EventProcessor(GameManager gameManager, EventQueue eventQueue, GamePanel gamePanel, Camera camera) {
+    public EventProcessor(GameManager gameManager, EventQueue eventQueue, GamePanel gamePanel, MovementComponent movementComponent) {
         this.gameManager = gameManager;
         this.eventQueue = eventQueue;
         this.gamePanel = gamePanel;
-        this.camera = camera;
+        this.cameraMovement = movementComponent;
     }
 
     @Override
@@ -23,7 +24,6 @@ public class EventProcessor implements Runnable {
         while(gameManager.isRunning()) {
             if(eventQueue.hasEvents()) {
                 Event event = eventQueue.getNextEvent();
-                System.out.println("Processing event");
 
                 switch(event.type()) {
                     // Menu Events
@@ -42,14 +42,14 @@ public class EventProcessor implements Runnable {
                     case QUIT_GAME -> gameManager.stopRunning();
 
                     // Camera movement Events
-                    case CAMERA_UP -> camera.cameraUp();
-                    case CAMERA_DOWN -> camera.cameraDown();
-                    case CAMERA_LEFT -> camera.cameraLeft();
-                    case CAMERA_RIGHT -> camera.cameraRight();
-                    case CAMERA_UP_RELEASED -> camera.stopUp();
-                    case CAMERA_DOWN_RELEASED -> camera.stopDown();
-                    case CAMERA_LEFT_RELEASED -> camera.stopLeft();
-                    case CAMERA_RIGHT_RELEASED -> camera.stopRight();
+                    case CAMERA_UP -> cameraMovement.addMove(MovementComponent.CAMERA_MOVES.CAMERA_UP);
+                    case CAMERA_DOWN -> cameraMovement.addMove(MovementComponent.CAMERA_MOVES.CAMERA_DOWN);
+                    case CAMERA_LEFT -> cameraMovement.addMove(MovementComponent.CAMERA_MOVES.CAMERA_LEFT);
+                    case CAMERA_RIGHT -> cameraMovement.addMove(MovementComponent.CAMERA_MOVES.CAMERA_RIGHT);
+                    case CAMERA_UP_RELEASED -> cameraMovement.removeMove(MovementComponent.CAMERA_MOVES.CAMERA_UP);
+                    case CAMERA_DOWN_RELEASED -> cameraMovement.removeMove(MovementComponent.CAMERA_MOVES.CAMERA_DOWN);
+                    case CAMERA_LEFT_RELEASED -> cameraMovement.removeMove(MovementComponent.CAMERA_MOVES.CAMERA_LEFT);
+                    case CAMERA_RIGHT_RELEASED -> cameraMovement.removeMove(MovementComponent.CAMERA_MOVES.CAMERA_RIGHT);
                 }
             }
         }

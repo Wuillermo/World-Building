@@ -1,7 +1,6 @@
 package game.view;
 
 import game.controller.InputManager;
-import game.model.core.Handler;
 import game.model.map.GameMap;
 
 import java.awt.*;
@@ -21,7 +20,6 @@ public class GamePanel extends JPanel {
 
     private final MainMenuPanel mainMenu;
     private GameMap gameMap;
-    private final Handler handler;
 
     public enum SCREEN_STATE {
         MAIN_MENU,
@@ -30,10 +28,9 @@ public class GamePanel extends JPanel {
     private SCREEN_STATE SCREENState = SCREEN_STATE.MAIN_MENU;
 
     // CONSTRUCTOR
-    public GamePanel(InputManager inputManager, Handler handler) {
+    public GamePanel(InputManager inputManager) {
 
         this.mainMenu = new MainMenuPanel(screenWidth);
-        this.handler = handler;
 
         // Configure the window
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));

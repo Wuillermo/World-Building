@@ -20,7 +20,7 @@ public class GameMap extends GameObject {
     // ATTRIBUTES
     private final Tile[][] tiles;
     private final Camera camera;
-    private final BufferedImage bufferedImage;
+    public final BufferedImage bufferedImage;
     private final int maxColumns;
     private final int maxRows;
     private final int tileSize;
@@ -75,9 +75,9 @@ public class GameMap extends GameObject {
 
     @Override
     public void render(Graphics g) {
-        int screenX = -camera.getTopLeftX();
+        /*int screenX = -camera.getTopLeftX();
         int screenY = -camera.getTopLeftY();
-        g.drawImage(bufferedImage, screenX, screenY, null);
+        g.drawImage(bufferedImage, screenX, screenY, null);*/
     }
 
     // Creates a completely Random map following the most simple rules possible
@@ -136,7 +136,7 @@ public class GameMap extends GameObject {
 
         // Fill the map by selecting from empty tiles
         while(!emptyTiles.isEmpty()) {
-            System.out.println("EmptyTiles size: " + emptyTiles.size());
+            //System.out.println("EmptyTiles size: " + emptyTiles.size());
             // Pick a random Tile
             int index = random.nextInt(emptyTiles.size());
             Point chosenTile = emptyTiles.remove(index);
@@ -159,10 +159,8 @@ public class GameMap extends GameObject {
     // Expands a Tile's surroundings as much as maxExpansion allows (or a bit less due to randomness)
     private void populateTileSurroundings(int x, int y, int maxExpansion, TerrainType terrainType, ArrayList<Point> emptyTiles, Random random) {
         // Randomizes the max tiles it can expand
-        System.out.println("Populating surroundings");
 
         int toExpand = maxExpansion - random.nextInt(10);
-        System.out.println("toExpand: " + toExpand);
 
         // Tiles currently being expanded from
         LinkedList<Tile> tilesExpanding = new LinkedList<>();

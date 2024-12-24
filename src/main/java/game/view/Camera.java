@@ -2,6 +2,9 @@ package game.view;
 
 import game.model.core.GameObject;
 import game.model.core.ID;
+import game.model.ecs.ComponentStore;
+import game.model.ecs.Entity;
+import game.model.ecs.components.MovementComponent;
 import game.model.map.GameMap;
 
 import java.awt.*;
@@ -10,104 +13,29 @@ import java.util.Queue;
 
 // TODO stop the camera from being able to move infinitely to the right and bottom
 
-public class Camera extends GameObject {
-    enum CAMERA_MOVES {
-        CAMERA_UP, CAMERA_DOWN, CAMERA_LEFT, CAMERA_RIGHT
-    }
-
-    private final Queue<CAMERA_MOVES> camera_moves;
-
-    private int topLeftX;
-    private int topLeftY;
-    private GameMap gameMap;
+public class Camera extends Component {
     private final int width;
     private final int height;
 
     public Camera(int width, int height) {
-        super(ID.Camera);
         this.width = width;
         this.height = height;
-        this.camera_moves = new LinkedList<>();
-
-        topLeftX = 0;
-        topLeftY = 0;
     }
 
-    @Override
-    public void update() {
-        for (CAMERA_MOVES move : camera_moves) {
-            switch (move) {
-                case CAMERA_UP -> {
-                    if (topLeftY >= -7) {
-                        topLeftY -= 7;
-                    }
-                }
-                case CAMERA_DOWN -> {
-                    if (topLeftY + height <= gameMap.getMapYSize() + 7) {
-                        topLeftY += 7;
-                    }
-                }
-                case CAMERA_LEFT -> {
-                    if (topLeftX >= -7) {
-                        topLeftX -= 7;
-                    }
-                }
-                case CAMERA_RIGHT -> {
-                    if (topLeftX + width <= gameMap.getMapXSize() + 7) {
-                        topLeftX += 7;
-                    }
-                }
-            }
-        }
+    // Método para establecer la posición de la cámara (usado en el render system)
+    public void setPosition(int x, int y) {
+        // Puedes actualizar la visualización de la cámara aquí
     }
 
-    @Override
-    public void render(Graphics g) {
-
+    public void addMovementToEntity(Entity entity, MovementComponent.CAMERA_MOVES move, ComponentStore componentStore) {
+        // Obtén el componente MovementComponent de la entidad y añádele el movimiento
+        MovementComponent movement = componentStore.getComponent(entity, MovementComponent.class);
+        movement.addMove(move);
     }
 
-    public void cameraUp() {
-        if(!camera_moves.contains(CAMERA_MOVES.CAMERA_UP) && gameMap != null) {
-            camera_moves.add(CAMERA_MOVES.CAMERA_UP);
-        }
-    }
-    public void cameraDown() {
-        if(!camera_moves.contains(CAMERA_MOVES.CAMERA_DOWN) && gameMap != null) {
-            camera_moves.add(CAMERA_MOVES.CAMERA_DOWN);
-        }
-    }
-    public void cameraLeft() {
-        if(!camera_moves.contains(CAMERA_MOVES.CAMERA_LEFT) && gameMap != null) {
-            camera_moves.add(CAMERA_MOVES.CAMERA_LEFT);
-        }
-    }
-    public void cameraRight() {
-        if(!camera_moves.contains(CAMERA_MOVES.CAMERA_RIGHT) && gameMap != null) {
-            camera_moves.add(CAMERA_MOVES.CAMERA_RIGHT);
-        }
-    }
-    public void stopUp() {
-        camera_moves.remove(CAMERA_MOVES.CAMERA_UP);
-    }
-    public void stopDown() {
-        camera_moves.remove(CAMERA_MOVES.CAMERA_DOWN);
-    }
-    public void stopLeft() {
-        camera_moves.remove(CAMERA_MOVES.CAMERA_LEFT);
-    }
-    public void stopRight() {
-        camera_moves.remove(CAMERA_MOVES.CAMERA_RIGHT);
-    }
-
-    public int getTopLeftX() {
-        return topLeftX;
-    }
-
-    public int getTopLeftY() {
-        return topLeftY;
-    }
-
-    public void setGameMap(GameMap gameMap) {
-        this.gameMap = gameMap;
+    public void stopMovementForEntity(Entity entity, MovementComponent.CAMERA_MOVES move, ComponentStore componentStore) {
+        // Detén el movimiento en la entidad
+        MovementComponent movement = componentStore.getComponent(entity, MovementComponent.class);
+        movement.removeMove(move);
     }
 }
